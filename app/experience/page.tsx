@@ -6,7 +6,7 @@ import { getExperienceContent } from "@/lib/api/pages";
 import {
   experience,
   pageIntros,
-  profile,
+  // profile,
 } from "@/lib/fallbacks/portfolio-data";
 import type {
   ExperienceItem,
