@@ -5,6 +5,7 @@ import Script from "next/script";
 
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteNav } from "@/components/layout/site-nav";
+import { BottomNav } from "@/components/layout/bottom-nav";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { cn } from "@/lib/utils";
 
@@ -67,11 +68,12 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-full text-foreground">
+      <body className="min-h-full text-foreground pb-16 lg:pb-0">
         <ThemeProvider>
           <SiteNav />
           {children}
           <SiteFooter />
+          <BottomNav />
         </ThemeProvider>
         <SpeedInsights />
         {!isDevelopment ? (

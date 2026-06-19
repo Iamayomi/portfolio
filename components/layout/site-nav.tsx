@@ -1,12 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
 
-import { Button } from "@/components/ui/button";
-import { MobileCoffeeLink } from "@/components/layout/buy-me-coffee-link";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { cn } from "@/lib/utils";
 import { navItems, profile } from "@/lib/fallbacks/portfolio-data";
@@ -20,7 +16,6 @@ const isActivePath = (pathname: string, href: string) => {
 
 export function SiteNav() {
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
   const activeItem = navItems.find((item) => isActivePath(pathname, item.href));
 
   return (
@@ -77,48 +72,8 @@ export function SiteNav() {
 
         <div className="flex items-center gap-2">
           <ThemeToggle />
-          <Button
-            type="button"
-            size="icon-lg"
-            variant="outline"
-            aria-label={open ? "Close navigation" : "Open navigation"}
-            aria-expanded={open}
-            className="rounded-none border border-border/30 bg-transparent lg:hidden"
-            onClick={() => setOpen((value) => !value)}
-          >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </Button>
         </div>
       </div>
-
-      {open ? (
-        <nav
-          aria-label="Mobile navigation"
-          className="border-t border-border/15 bg-background lg:hidden"
-        >
-          <div className="mx-auto grid max-w-6xl px-5 py-3 sm:px-8">
-            {navItems.map((item) => {
-              const isActive = isActivePath(pathname, item.href);
-
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setOpen(false)}
-                  className={cn(
-                    "flex items-center justify-between border-b border-border/20 px-1 py-4 text-sm font-bold uppercase tracking-[0.12em] text-muted-foreground last:border-b-0",
-                    isActive && "text-foreground"
-                  )}
-                >
-                  {item.label}
-                  <span>/{item.code}</span>
-                </Link>
-              );
-            })}
-            <MobileCoffeeLink onClick={() => setOpen(false)} />
-          </div>
-        </nav>
-      ) : null}
     </header>
   );
 }

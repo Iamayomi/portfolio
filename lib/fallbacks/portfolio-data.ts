@@ -107,6 +107,7 @@ export const experience: ExperienceItem[] = [
     index: "01",
     role: "Backend Engineer | Elevot",
     period: "2025 – Present",
+    websiteUrl: "https://elevot-app.com/",
     summary:
       "Designed and developed the backend infrastructure for the Elevot education platform, a learning management system supporting exams, subscriptions, payments, community forums, gamification, and AI-powered learning assistance.",
     signals: [
@@ -121,6 +122,7 @@ export const experience: ExperienceItem[] = [
     index: "02",
     role: "Backend Engineer | EMRO Ambulance",
     period: "Feb 2025 – May 2026",
+    websiteUrl: "https://www.emro.com.ng",
     summary:
       "Designed and implemented microservices architecture using Node.js and TypeScript for emergency healthcare workflows including ambulance dispatch, patient records, and emergency request handling.",
     signals: [
@@ -134,6 +136,7 @@ export const experience: ExperienceItem[] = [
     index: "03",
     role: "Backend Engineer | Hireus Logistic",
     period: "Apr 2024 – May 2025",
+    websiteUrl: "https://hireuslogistics.ng/",
     summary:
       "Designed and implemented scalable RESTful APIs for authentication, ride requests, and payment processing, improving system responsiveness by ~30%.",
     signals: [
@@ -147,6 +150,7 @@ export const experience: ExperienceItem[] = [
     index: "04",
     role: "Backend Engineer | Zita Onyeka Foundation",
     period: "Apr 2023 – Nov 2023",
+    websiteUrl: "https://www.zitaonyekafoundation.org/",
     summary:
       "Developed and maintained backend infrastructure for the foundation's website, powering administrative operations, content management, and public-facing services.",
     signals: [
