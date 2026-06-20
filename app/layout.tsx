@@ -79,7 +79,7 @@ export default function RootLayout({
         {!isDevelopment ? (
           <Script
             src="https://cloud.umami.is/script.js"
-            data-website-id="0f53e08e-cb77-4a0b-b333-a012452c8958"
+            data-website-id="c64060f6-5f22-4e12-955d-6925f903afcf"
             strategy="afterInteractive"
           />
         ) : null}
