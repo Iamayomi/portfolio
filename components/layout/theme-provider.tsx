@@ -14,6 +14,7 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
       defaultTheme="dark"
       enableSystem
       disableTransitionOnChange
+      themes={["light", "dark", "sepia"]}
     >
       {children}
     </NextThemesProvider>

@@ -7,6 +7,7 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteNav } from "@/components/layout/site-nav";
 import { BottomNav } from "@/components/layout/bottom-nav";
 import { ThemeProvider } from "@/components/layout/theme-provider";
+import { ReadingProgress } from "@/components/common/reading-progress";
 import { cn } from "@/lib/utils";
 
 import "./globals.css";
@@ -70,6 +71,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-full text-foreground pb-16 lg:pb-0">
         <ThemeProvider>
+          <ReadingProgress />
           <SiteNav />
           {children}
           <SiteFooter />

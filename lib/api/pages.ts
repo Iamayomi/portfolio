@@ -6,6 +6,8 @@ import type {
   BuildsPageContent,
   ExperiencePageContent,
 } from "@/lib/types/experience";
+import type { GuestbookEntry } from "@/lib/types/guestbook";
+import type { BookItem } from "@/lib/types/bookshelf";
 import type {
   NoteCommentPayload,
   PublicNoteComment,
@@ -58,3 +60,17 @@ export const subscribeToNewsletter = (payload: {
   source?: string;
   page?: string;
 }) => apiPost<ApiResponse<{ subscribed: boolean }>>("/newsletter", payload);
+
+export const getGuestbookContent = () =>
+  apiFetch<ApiResponse<GuestbookEntry[]>>("/guestbook");
+
+export const getBookshelfContent = () =>
+  apiFetch<ApiResponse<BookItem[]>>("/bookshelf");
+
+export const sendGuestbookEntry = (payload: {
+  name: string;
+  email?: string;
+  website?: string;
+  avatarUrl?: string;
+  message: string;
+}) => apiPost<ApiResponse<null>>("/guestbook", payload);

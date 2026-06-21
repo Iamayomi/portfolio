@@ -6,6 +6,7 @@ import {
   Mail,
   Network,
   NotebookText,
+  PenLine,
   X,
 } from "lucide-react";
 import {
@@ -24,7 +25,8 @@ export const navItems: NavItem[] = [
   { href: "/experience", label: "Experience", code: "xp" },
   { href: "/builds", label: "Builds", code: "builds" },
   { href: "/notes", label: "Notes", code: "articles" },
-  // { href: "/extra", label: "Extra", code: "extras" },
+  { href: "/bookshelf", label: "Bookshelf", code: "bookshelf" },
+  { href: "/guestbook", label: "Guestbook", code: "guestbook" },
   { href: "/contact", label: "Resume", code: "contact" },
 ];
 
@@ -290,6 +292,13 @@ export const pageIntros = {
     heading: "Let's build something together.",
     description:
       "Whether you need backend architecture, API design, or scalable system development, I'm ready to discuss your project requirements.",
+  },
+  guestbook: {
+    icon: PenLine,
+    eyebrow: "sign the book",
+    heading: "Leave a note.",
+    description:
+      "Sign the guestbook and let me know you stopped by. A name and message is all it takes.",
   },
   extra: {
     icon: Gamepad2,
