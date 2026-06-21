@@ -29,8 +29,7 @@ export async function apiFetch<T>(
       credentials: "include",
     });
     return readJsonResponse<T>(res);
-  } catch (err) {
-    console.error(`API fetch failed for ${path}:`, err);
+  } catch {
     return undefined;
   }
 }

@@ -75,6 +75,37 @@
   --ring: oklch(0.76 0.12 55);
 }
 
+.sepia {
+  --background: oklch(0.95 0.02 80);
+  --foreground: oklch(0.25 0.03 60);
+  --card: oklch(0.93 0.025 75);
+  --card-foreground: oklch(0.25 0.03 60);
+  --popover: oklch(0.93 0.025 75);
+  --popover-foreground: oklch(0.25 0.03 60);
+  --primary: oklch(0.55 0.15 35);
+  --primary-foreground: oklch(0.97 0.01 80);
+  --secondary: oklch(0.88 0.04 75);
+  --secondary-foreground: oklch(0.25 0.03 60);
+  --muted: oklch(0.87 0.035 78);
+  --muted-foreground: oklch(0.45 0.03 60);
+  --accent: oklch(0.85 0.06 70);
+  --accent-foreground: oklch(0.25 0.03 60);
+  --destructive: oklch(0.58 0.18 28);
+  --border: oklch(0.82 0.03 70);
+  --input: oklch(0.82 0.03 70);
+  --ring: oklch(0.55 0.15 35);
+}
+
+.sepia body {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 2.35rem,
+    color-mix(in oklch, var(--border), transparent 85%) 2.35rem,
+    color-mix(in oklch, var(--border), transparent 85%) calc(2.35rem + 1px)
+  );
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -276,5 +307,28 @@
   .notes-prose .hljs-operator,
   .notes-prose .hljs-punctuation {
     color: #d7dee7;
+  }
+}
+
+@media print {
+  body::before,
+  .no-print {
+    display: none !important;
+  }
+
+  .notes-prose pre {
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  .notes-prose a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .notes-prose a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
   }
 }
