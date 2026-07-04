@@ -78,7 +78,7 @@ export function NoteShare({ url, title, excerpt }: NoteShareProps) {
       </TelegramShareButton>
       <FacebookShareButton
         url={url}
-        hashtag="#SomtoNotes"
+        hashtag="#AyomideNotes"
         className={shareButtonClass}
         aria-label="Share on Facebook"
         data-umami-event="fb_share_button_clicked"
