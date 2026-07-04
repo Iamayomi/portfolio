@@ -25,9 +25,10 @@ export async function apiFetch<T>(
       }
     });
 
-    const res = await fetch(url.toString(), {
-      credentials: "include",
-    });
+    const res = await fetch(url.toString());
+
+    if (!res.ok) return undefined;
+
     return readJsonResponse<T>(res);
   } catch {
     return undefined;
@@ -41,7 +42,6 @@ export async function apiPost<T>(
   try {
     const res = await fetch(`${API_BASE_URL}${path}`, {
       method: "POST",
-      credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
