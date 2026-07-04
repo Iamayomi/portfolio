@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 
 import { PageShell } from "@/components/common/page-shell";
 import { SectionHeading } from "@/components/common/section-heading";
+import { EmptyState } from "@/components/common/empty-state";
 import { getExperienceContent } from "@/lib/api/pages";
 import { pageIntros } from "@/lib/constants/content";
+import { BriefcaseBusiness } from "lucide-react";
 import type {
   ExperienceItem,
   ExperiencePageContent,
@@ -51,8 +53,18 @@ export default async function ExperiencePage() {
   return (
     <PageShell>
       <SectionHeading {...intro} tag="XP" />
-      <ExperienceTimeline items={items} />
-      <OperatingNote note={operatingNote} />
+      {items.length > 0 ? (
+        <>
+          <ExperienceTimeline items={items} />
+          <OperatingNote note={operatingNote} />
+        </>
+      ) : (
+        <EmptyState
+          icon={BriefcaseBusiness}
+          heading="No experience yet."
+          description="Add work experience through the CMS dashboard and it will appear here."
+        />
+      )}
     </PageShell>
   );
 }

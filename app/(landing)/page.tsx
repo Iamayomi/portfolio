@@ -3,8 +3,10 @@ import { HeroSection } from "./_components/hero-section";
 import { LandingAside } from "./_components/landing-aside";
 import { RecentNotesSection } from "./_components/recent-notes-section";
 import { SelectedWorksSection } from "./_components/selected-works-section";
+import { EmptyState } from "@/components/common/empty-state";
 import { getLandingContent } from "@/lib/api/pages";
 import { resolveCloudinaryUrl } from "@/lib/utils";
+import { Construction } from "lucide-react";
 
 export const revalidate = 60;
 
@@ -12,7 +14,17 @@ export default async function HomePage() {
   const response = await getLandingContent();
   const data = response?.data;
 
-  if (!data) return null;
+  if (!data) {
+    return (
+      <PageShell className="cursor-default py-10 sm:py-16">
+        <EmptyState
+          icon={Construction}
+          heading="Nothing here yet."
+          description="The CMS hasn't been set up. Add landing content through the dashboard to see it here."
+        />
+      </PageShell>
+    );
+  }
 
   const hero = {
     ...data.hero,

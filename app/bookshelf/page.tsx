@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 
 import { PageShell } from "@/components/common/page-shell";
 import { SectionHeading } from "@/components/common/section-heading";
+import { EmptyState } from "@/components/common/empty-state";
 import { getBookshelfContent } from "@/lib/api/pages";
 import { BookList } from "./_components/book-list";
+import { BookOpen } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Reading List",
@@ -29,7 +31,15 @@ export default async function BookshelfPage() {
         description="A curated reading list of books on engineering, systems, architecture, and the craft of building things."
         tag="READS"
       />
-      <BookList books={books} />
+      {books.length > 0 ? (
+        <BookList books={books} />
+      ) : (
+        <EmptyState
+          icon={BookOpen}
+          heading="No books yet."
+          description="Add books through the CMS dashboard and they will appear here."
+        />
+      )}
     </PageShell>
   );
 }
