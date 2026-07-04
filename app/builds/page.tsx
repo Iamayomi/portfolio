@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 
 import { PageShell } from "@/components/common/page-shell";
 import { SectionHeading } from "@/components/common/section-heading";
+import { EmptyState } from "@/components/common/empty-state";
 import { getBuildsContent } from "@/lib/api/pages";
 import { pageIntros } from "@/lib/constants/content";
+import { Boxes } from "lucide-react";
 import type { BuildItem, BuildsPageContent } from "@/lib/types/experience";
 import { normalizeExternalHref } from "@/lib/utils";
 import { BuildList } from "./_components/build-list";
@@ -49,7 +51,15 @@ export default async function BuildsPage() {
   return (
     <PageShell>
       <SectionHeading {...intro} tag="SHOWCASE" />
-      <BuildList items={items} />
+      {items.length > 0 ? (
+        <BuildList items={items} />
+      ) : (
+        <EmptyState
+          icon={Boxes}
+          heading="No projects yet."
+          description="Add builds through the CMS dashboard and they will appear here."
+        />
+      )}
     </PageShell>
   );
 }
