@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import { PageShell } from "@/components/common/page-shell";
 import { SectionHeading } from "@/components/common/section-heading";
-import { pageIntros } from "@/lib/fallbacks/portfolio-data";
+import { pageIntros } from "@/lib/constants/content";
 import { ExtraAside } from "./_components/extra-aside";
 import { ExtraGrid } from "./_components/extra-grid";
 

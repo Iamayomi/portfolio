@@ -3,7 +3,6 @@
 import { Mail } from "lucide-react";
 import { motion } from "framer-motion";
 
-import { socialLinks as fallbackSocialLinks } from "@/lib/fallbacks/portfolio-data";
 import type { ContactSocials } from "@/lib/types/contact";
 import { getSocialLinks } from "@/lib/utils";
 
@@ -13,8 +12,7 @@ type ContactAsideProps = {
 };
 
 export function ContactAside({ helperNote, socials }: ContactAsideProps) {
-  const cmsLinks = socials ? getSocialLinks(socials) : [];
-  const links = cmsLinks.length ? cmsLinks : fallbackSocialLinks;
+  const links = socials ? getSocialLinks(socials) : [];
 
   return (
     <aside className="space-y-8">

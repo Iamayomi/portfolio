@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { PageShell } from "@/components/common/page-shell";
 import { SectionHeading } from "@/components/common/section-heading";
 import { getBuildsContent } from "@/lib/api/pages";
-import { builds, pageIntros } from "@/lib/fallbacks/portfolio-data";
+import { pageIntros } from "@/lib/constants/content";
 import type { BuildItem, BuildsPageContent } from "@/lib/types/experience";
 import { normalizeExternalHref } from "@/lib/utils";
 import { BuildList } from "./_components/build-list";
@@ -44,7 +44,7 @@ export default async function BuildsPage() {
         githubHref: normalizeExternalHref(build.githubUrl) || undefined,
         liveHref: normalizeExternalHref(build.liveUrl) || undefined,
       }))
-    : builds;
+    : [];
 
   return (
     <PageShell>

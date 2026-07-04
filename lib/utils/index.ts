@@ -21,6 +21,31 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+export function resolveCloudinaryUrl(url: string): string {
+  if (!url || !url.includes("res.cloudinary.com")) return url;
+
+  try {
+    const parsed = new URL(url);
+    const pathParts = parsed.pathname.split("/").filter(Boolean);
+
+    // Fix doubled folder: /documents/documents/... -> /documents/...
+    if (pathParts.length >= 3 && pathParts[0] === pathParts[1]) {
+      pathParts.splice(1, 1);
+    }
+
+    // Fix wrong resource_type: /image/upload for non-image files -> /raw/upload
+    const isImage = /\.(jpe?g|png|gif|heic|heif|webp|svg|bmp|tiff)$/i.test(parsed.pathname);
+    if (pathParts[1] === "upload" && pathParts[0] === "image" && !isImage) {
+      pathParts[0] = "raw";
+    }
+
+    parsed.pathname = "/" + pathParts.join("/");
+    return parsed.toString();
+  } catch {
+    return url;
+  }
+}
+
 export const normalizeExternalHref = (value?: string | null) => {
   const trimmed = value?.trim();
   if (!trimmed) return "";
