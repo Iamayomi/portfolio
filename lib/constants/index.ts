@@ -12,5 +12,5 @@ export const API_BASE_URL =
 	process.env.NEXT_PUBLIC_API_BASE_URL ||
 	(isDevelopment
 		? "http://localhost:3000/api/public"
-		: "http://localhost:8080");
-// : "https://admin.talktosomto.xyz/api/public");
+		: // : "http://localhost:8080");
+			"https://portfolio-cms-peach.vercel.app/");
