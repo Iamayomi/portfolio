@@ -1,6 +1,6 @@
 export const VERSION = Date.now();
 
-export const isDevelopment = process.env.NODE_ENV;
+export const isDevelopment = process.env.NODE_ENV === "development";
 
 export const BASE_URL =
 	process.env.NEXT_PUBLIC_BASE_URL ||
