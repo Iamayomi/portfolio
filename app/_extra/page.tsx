@@ -9,7 +9,7 @@ import { ExtraGrid } from "./_components/extra-grid";
 export const metadata: Metadata = {
   title: "Extra",
   description:
-    "A playful page about Somto outside work: chess, 8 ball, music, games, and personal corners.",
+    "A playful page about Ayomide outside work: chess, 8 ball, music, games, and personal corners.",
   alternates: {
     canonical: "/extra",
   },

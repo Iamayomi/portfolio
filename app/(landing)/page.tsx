@@ -6,7 +6,7 @@ import { SelectedWorksSection } from "./_components/selected-works-section";
 import { getLandingContent } from "@/lib/api/pages";
 import { fallbackLandingContent } from "@/lib/fallbacks";
 
-export const revalidate = 900;
+export const revalidate = 60;
 
 export default async function HomePage() {
   const data = (await getLandingContent())?.data ?? fallbackLandingContent;

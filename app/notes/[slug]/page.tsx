@@ -40,7 +40,7 @@ export async function generateMetadata({
 
   const noteUrl = new URL(`/notes/${slug}`, BASE_URL).toString();
 
-  const description = note.excerpt || "Read the latest notes by Somto";
+  const description = note.excerpt || "Read the latest notes by Ayomide";
 
   return {
     alternates: {
@@ -59,7 +59,7 @@ export async function generateMetadata({
       publishedTime: note.publishedAt
         ? new Date(note.publishedAt).toISOString()
         : undefined,
-      authors: note.author?.name ? [note.author.name] : ["Somtochukwu Nkem"],
+      authors: note.author?.name ? [note.author.name] : ["Amodu Ayomide"],
       images: [
         {
           url: ogImageUrl,
@@ -124,7 +124,7 @@ export default async function NotePage({ params }: NotePageProps) {
               <div className="mt-6 flex flex-wrap items-center gap-4 text-xs font-bold uppercase tracking-[0.12em] text-muted-foreground">
                 <span className="inline-flex items-center gap-2">
                   <UserRound className="h-4 w-4 text-primary" />
-                  {note.author?.name || "Somto"}
+                  {note.author?.name || "Ayomide"}
                 </span>
                 <span>{formatDate(note.publishedAt)}</span>
 

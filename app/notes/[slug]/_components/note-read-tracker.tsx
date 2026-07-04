@@ -13,7 +13,7 @@ export function NoteReadTracker({ slug, targetId }: NoteReadTrackerProps) {
   const trackedRef = useRef(false);
 
   useEffect(() => {
-    const storageKey = `somto_note_read_${slug}`;
+    const storageKey = `ayomide_note_read_${slug}`;
 
     const hasTracked =
       trackedRef.current || window.sessionStorage.getItem(storageKey) === "1";
