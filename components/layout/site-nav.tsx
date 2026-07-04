@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 
 import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { cn } from "@/lib/utils";
-import { navItems, profile } from "@/lib/fallbacks/portfolio-data";
+import { navItems, profile } from "@/lib/constants/content";
 import Image from "next/image";
 
 const isActivePath = (pathname: string, href: string) => {

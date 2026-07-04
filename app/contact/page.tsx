@@ -3,7 +3,8 @@ import type { Metadata } from "next";
 import { PageShell } from "@/components/common/page-shell";
 import { SectionHeading } from "@/components/common/section-heading";
 import { getContactContent } from "@/lib/api/pages";
-import { pageIntros } from "@/lib/fallbacks/portfolio-data";
+import { pageIntros } from "@/lib/constants/content";
+import { resolveCloudinaryUrl } from "@/lib/utils";
 import { ContactAside } from "./_components/contact-aside";
 import { ContactForm } from "./_components/contact-form";
 
@@ -35,7 +36,7 @@ export default async function ContactPage() {
     <PageShell>
       <SectionHeading {...intro} tag="HOLA" />
       <section className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_20rem]">
-        <ContactForm cvUrl={contact?.cvUrl} />
+        <ContactForm cvUrl={resolveCloudinaryUrl(contact?.cvUrl || "")} />
         <ContactAside
           helperNote={contact?.helperNote}
           socials={contact?.socials}

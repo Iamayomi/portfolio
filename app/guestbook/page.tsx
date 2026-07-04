@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { PageShell } from "@/components/common/page-shell";
 import { SectionHeading } from "@/components/common/section-heading";
 import { getGuestbookContent } from "@/lib/api/pages";
-import { pageIntros } from "@/lib/fallbacks/portfolio-data";
+import { pageIntros } from "@/lib/constants/content";
 import { GuestbookList } from "./_components/guestbook-list";
 import { GuestbookForm } from "./_components/guestbook-form";
 

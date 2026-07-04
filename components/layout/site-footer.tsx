@@ -3,13 +3,12 @@ import Link from "next/link";
 import { FooterCoffeeLink } from "@/components/layout/buy-me-coffee-link";
 import { NewsletterSignup } from "@/components/common/newsletter-signup";
 import { getContactContent } from "@/lib/api/pages";
-import { navItems, socialLinks } from "@/lib/fallbacks/portfolio-data";
+import { navItems } from "@/lib/constants/content";
 import { getSocialLinks } from "@/lib/utils";
 
 export async function SiteFooter() {
   const contact = await getContactContent();
-  const cmsLinks = getSocialLinks(contact?.data?.socials);
-  const links = cmsLinks.length ? cmsLinks : socialLinks;
+  const links = getSocialLinks(contact?.data?.socials);
 
   const year = new Date().getFullYear();
 

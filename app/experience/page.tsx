@@ -3,11 +3,7 @@ import type { Metadata } from "next";
 import { PageShell } from "@/components/common/page-shell";
 import { SectionHeading } from "@/components/common/section-heading";
 import { getExperienceContent } from "@/lib/api/pages";
-import {
-  experience,
-  pageIntros,
-  // profile,
-} from "@/lib/fallbacks/portfolio-data";
+import { pageIntros } from "@/lib/constants/content";
 import type {
   ExperienceItem,
   ExperiencePageContent,
@@ -49,7 +45,7 @@ export default async function ExperiencePage() {
           signals: item.signals || [],
         })
       )
-    : experience;
+    : [];
   const operatingNote = content?.hero.operatingNote;
 
   return (
