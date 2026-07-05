@@ -39,6 +39,15 @@ export function resolveCloudinaryUrl(url: string): string {
       pathParts[0] = "raw";
     }
 
+    // Fix doubled extension: photo.png.png -> photo.png
+    const lastPart = pathParts[pathParts.length - 1];
+    if (lastPart) {
+      const extMatch = lastPart.match(/^(.+\.[a-z0-9]+)\.[a-z0-9]+$/i);
+      if (extMatch) {
+        pathParts[pathParts.length - 1] = extMatch[1];
+      }
+    }
+
     parsed.pathname = "/" + pathParts.join("/");
     return parsed.toString();
   } catch {

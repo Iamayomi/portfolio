@@ -5,10 +5,6 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "s3.eu-west-2.amazonaws.com",
-      },
-      {
-        protocol: "https",
         hostname: "img.youtube.com",
       },
       {
@@ -28,7 +24,7 @@ const nextConfig: NextConfig = {
             value: "talktosomto.xyz",
           },
         ],
-        destination: "https://www.talktosomto.xyz/:path*",
+        destination: "https://www.talktoayo.xyz/:path*",
         permanent: true,
       },
     ];
