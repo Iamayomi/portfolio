@@ -14,7 +14,7 @@ const isActivePath = (pathname: string, href: string) => {
   return pathname === href || pathname.startsWith(`${href}/`);
 };
 
-export function SiteNav() {
+export function SiteNav({ avatarUrl }: { avatarUrl?: string }) {
   const pathname = usePathname();
   const activeItem = navItems.find((item) => isActivePath(pathname, item.href));
 
@@ -26,7 +26,7 @@ export function SiteNav() {
             {/* <Cookie className="h-4 w-4" /> */}
             <Image
               alt="Logo avatar"
-              src={"/avatar.png"}
+              src={avatarUrl || "https://res.cloudinary.com/do3pqxyt8/image/upload/v1783213710/portfolio/avatar.png"}
               height={200}
               width={200}
               priority

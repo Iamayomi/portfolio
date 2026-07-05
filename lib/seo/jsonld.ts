@@ -13,7 +13,7 @@ export const jsonLd = {
     "Ayo"
   ],
   url: BASE_URL,
-  logo: `${BASE_URL}/avatar.png`,
+  logo: "https://res.cloudinary.com/do3pqxyt8/image/upload/v1783213710/portfolio/avatar.png",
   image: ogImage,
 
   jobTitle: "Backend Engineer",
