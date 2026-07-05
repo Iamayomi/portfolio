@@ -9,6 +9,7 @@ import { BottomNav } from "@/components/layout/bottom-nav";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { ReadingProgress } from "@/components/common/reading-progress";
 import { cn } from "@/lib/utils";
+import { getLandingContent } from "@/lib/api/pages";
 
 import "./globals.css";
 import { jsonLd, seoMetadata } from "@/lib/seo";
@@ -44,11 +45,14 @@ export const viewport: Viewport = {
   width: "device-width",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const response = await getLandingContent();
+  const avatarUrl = response?.data?.headerAvatarUrl || "";
+
   return (
     <html
       lang="en"
@@ -72,7 +76,7 @@ export default function RootLayout({
       <body className="min-h-full text-foreground pb-16 lg:pb-0">
         <ThemeProvider>
           <ReadingProgress />
-          <SiteNav />
+          <SiteNav avatarUrl={avatarUrl} />
           {children}
           <SiteFooter />
           <BottomNav />
