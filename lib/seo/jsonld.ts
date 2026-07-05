@@ -2,7 +2,7 @@ import { BASE_URL, VERSION } from "../constants";
 
 const ogImage = `${BASE_URL}/seo/opengraph-image.png?v=${VERSION}`;
 
-export const jsonLd = {
+export const buildJsonLd = (logoUrl?: string) => ({
   "@context": "https://schema.org",
   "@type": "Person",
 
@@ -13,7 +13,7 @@ export const jsonLd = {
     "Ayo"
   ],
   url: BASE_URL,
-  logo: "https://res.cloudinary.com/do3pqxyt8/image/upload/v1783213710/portfolio/avatar.png",
+  ...(logoUrl ? { logo: logoUrl } : {}),
   image: ogImage,
 
   jobTitle: "Backend Engineer",
