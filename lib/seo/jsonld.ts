@@ -70,4 +70,4 @@ export const buildJsonLd = (logoUrl?: string) => ({
       url: BASE_URL,
     },
   },
-};
+});
