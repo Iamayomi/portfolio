@@ -21,7 +21,7 @@ const nextConfig: NextConfig = {
         has: [
           {
             type: "host",
-            value: "talktosomto.xyz",
+            value: "talktoayo.xyz",
           },
         ],
         destination: "https://www.talktoayo.xyz/:path*",

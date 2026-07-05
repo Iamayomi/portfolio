@@ -23,14 +23,15 @@ export function SiteNav({ avatarUrl }: { avatarUrl?: string }) {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5 sm:px-8 lg:px-10">
         <Link href="/" className="group inline-flex min-w-0 items-center gap-3">
           <span className="grid size-10 shrink-0 place-items-center border-2 border-border/30 bg-accent text-accent-foreground transition-transform group-hover:-rotate-6 overflow-hidden rounded-2xl">
-            {/* <Cookie className="h-4 w-4" /> */}
-            <Image
-              alt="Logo avatar"
-              src={avatarUrl || "https://res.cloudinary.com/do3pqxyt8/image/upload/v1783213710/portfolio/avatar.png"}
-              height={200}
-              width={200}
-              priority
-            />
+            {avatarUrl ? (
+              <Image
+                alt="Logo avatar"
+                src={avatarUrl}
+                height={200}
+                width={200}
+                priority
+              />
+            ) : null}
           </span>
           <span className="min-w-0">
             <span className="block  font-black capitalize text-2xl tracking-[0.16em] leading-none font-sketch relative">

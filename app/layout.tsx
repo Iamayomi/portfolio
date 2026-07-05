@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 import { getLandingContent } from "@/lib/api/pages";
 
 import "./globals.css";
-import { jsonLd, seoMetadata } from "@/lib/seo";
+import { buildJsonLd, seoMetadata } from "@/lib/seo";
 import { isDevelopment } from "@/lib/constants";
 
 const jetbrainsMono = JetBrains_Mono({
@@ -52,6 +52,7 @@ export default async function RootLayout({
 }>) {
   const response = await getLandingContent();
   const avatarUrl = response?.data?.headerAvatarUrl || "";
+  const faviconUrl = response?.data?.faviconUrl || "";
 
   return (
     <html
@@ -66,10 +67,11 @@ export default async function RootLayout({
       )}
     >
       <head>
+        {faviconUrl ? <link rel="icon" href={faviconUrl} /> : null}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(jsonLd),
+            __html: JSON.stringify(buildJsonLd(avatarUrl)),
           }}
         />
       </head>
