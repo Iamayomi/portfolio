@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Moon, Sun, BookOpen } from "lucide-react";
+import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 
 import { Button } from "@/components/ui/button";
 
-const themes = ["light", "dark", "sepia"] as const;
+const themes = ["light", "dark"] as const;
 
 export function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
@@ -23,8 +23,6 @@ export function ThemeToggle() {
     ? Sun
     : resolvedTheme === "dark"
     ? Moon
-    : resolvedTheme === "sepia"
-    ? BookOpen
     : Sun;
 
   return (
