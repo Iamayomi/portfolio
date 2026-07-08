@@ -9,7 +9,7 @@ import {
   Boxes,
   NotebookText,
   FileText,
-  BookMarked,
+  Library,
   PenLine,
   MoreHorizontal,
 } from "lucide-react";
@@ -23,7 +23,7 @@ const mainTabs = [
 ];
 
 const moreTabs = [
-  { href: "/bookshelf", label: "Books", icon: BookMarked },
+  { href: "/bookshelf", label: "Books", icon: Library },
   { href: "/guestbook", label: "Guest", icon: PenLine },
   { href: "/contact", label: "Resume", icon: FileText },
 ];
