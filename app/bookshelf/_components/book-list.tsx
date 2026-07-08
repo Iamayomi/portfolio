@@ -34,17 +34,16 @@ export function BookList({ books }: BookListProps) {
                 <h3 className="text-lg font-black tracking-[-0.02em]">
                   {book.title}
                 </h3>
-              <span className="border border-border/25 bg-accent/65 px-2 py-0.5 text-[0.65rem] font-bold uppercase tracking-[0.1em]">
-                {book.category}
-              </span>
-            </div>
-            <p className="mt-1 text-sm font-semibold text-muted-foreground">
-              by {book.author}
-            </p>
-            <p className="mt-2 max-w-2xl text-sm leading-7 text-muted-foreground">
-              {book.note}
-            </p>
-            </div>
+                <span className="border border-border/25 bg-accent/65 px-2 py-0.5 text-[0.65rem] font-bold uppercase tracking-[0.1em]">
+                  {book.category}
+                </span>
+              </div>
+              <p className="mt-1 text-sm font-semibold text-muted-foreground">
+                by {book.author}
+              </p>
+              <p className="mt-2 max-w-2xl text-sm leading-7 text-muted-foreground">
+                {book.note}
+              </p>
             </div>
           </div>
         </MotionItem>
