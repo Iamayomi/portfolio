@@ -1,5 +1,7 @@
 "use client";
 
+import { BookOpen } from "lucide-react";
+
 import { MotionItem, MotionList } from "@/components/common/motion-primitives";
 
 type Book = {
@@ -21,11 +23,17 @@ export function BookList({ books }: BookListProps) {
           key={book.title}
           className="group py-6 transition-colors hover:bg-accent/20"
         >
-          <div>
-            <div className="flex flex-wrap items-center gap-2">
-              <h3 className="text-lg font-black tracking-[-0.02em]">
-                {book.title}
-              </h3>
+          <div className="grid gap-4 sm:grid-cols-[3rem_minmax(0,1fr)]">
+            <div className="flex justify-center pt-1">
+              <div className="grid size-10 place-items-center rounded-lg border border-border/25 bg-accent/50">
+                <BookOpen className="h-4 w-4 text-primary" />
+              </div>
+            </div>
+            <div>
+              <div className="flex flex-wrap items-center gap-2">
+                <h3 className="text-lg font-black tracking-[-0.02em]">
+                  {book.title}
+                </h3>
               <span className="border border-border/25 bg-accent/65 px-2 py-0.5 text-[0.65rem] font-bold uppercase tracking-[0.1em]">
                 {book.category}
               </span>
@@ -36,6 +44,8 @@ export function BookList({ books }: BookListProps) {
             <p className="mt-2 max-w-2xl text-sm leading-7 text-muted-foreground">
               {book.note}
             </p>
+            </div>
+            </div>
           </div>
         </MotionItem>
       ))}
