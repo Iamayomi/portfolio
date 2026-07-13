@@ -5,7 +5,7 @@ import { MotionItem, MotionList } from "@/components/common/motion-primitives";
 import { SkillTags } from "@/components/common/skill-tags";
 import { Button } from "@/components/ui/button";
 import { normalizeExternalHref } from "@/lib/utils";
-import { EmojiCursorArea } from "./emoji-cursor-area";
+import { EmojiCursorArea } from "@/components/common/emoji-cursor-area";
 
 type SelectedWorksSectionProps = {
   content: ILandingContent["selectedWorks"];

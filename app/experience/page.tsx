@@ -10,6 +10,7 @@ import type {
   ExperienceItem,
   ExperiencePageContent,
 } from "@/lib/types/experience";
+import { EmojiCursorArea } from "@/components/common/emoji-cursor-area";
 import { ExperienceTimeline } from "./_components/experience-timeline";
 import { OperatingNote } from "./_components/operating-note";
 
@@ -52,19 +53,21 @@ export default async function ExperiencePage() {
 
   return (
     <PageShell>
-      <SectionHeading {...intro} tag="XP" />
-      {items.length > 0 ? (
-        <>
-          <ExperienceTimeline items={items} />
-          <OperatingNote note={operatingNote} />
-        </>
-      ) : (
-        <EmptyState
-          icon={BriefcaseBusiness}
-          heading="No experience yet."
-          description="Add work experience through the CMS dashboard and it will appear here."
-        />
-      )}
+      <EmojiCursorArea item="💼">
+        <SectionHeading {...intro} tag="XP" />
+        {items.length > 0 ? (
+          <>
+            <ExperienceTimeline items={items} />
+            <OperatingNote note={operatingNote} />
+          </>
+        ) : (
+          <EmptyState
+            icon={BriefcaseBusiness}
+            heading="No experience yet."
+            description="Add work experience through the CMS dashboard and it will appear here."
+          />
+        )}
+      </EmojiCursorArea>
     </PageShell>
   );
 }

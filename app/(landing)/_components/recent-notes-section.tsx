@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
 import { MotionItem, MotionList } from "@/components/common/motion-primitives";
-import { EmojiCursorArea } from "./emoji-cursor-area";
+import { EmojiCursorArea } from "@/components/common/emoji-cursor-area";
 import { NotesEmptyState } from "@/app/notes/_components/notes-empty-state";
 
 type RecentNotesSectionProps = {

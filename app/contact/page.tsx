@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { PageShell } from "@/components/common/page-shell";
 import { SectionHeading } from "@/components/common/section-heading";
+import { EmojiCursorArea } from "@/components/common/emoji-cursor-area";
 import { getContactContent } from "@/lib/api/pages";
 import { pageIntros } from "@/lib/constants/content";
 import { resolveCloudinaryUrl } from "@/lib/utils";
@@ -34,14 +35,16 @@ export default async function ContactPage() {
 
   return (
     <PageShell>
-      <SectionHeading {...intro} tag="HOLA" />
-      <section className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_20rem]">
-        <ContactForm cvUrl={resolveCloudinaryUrl(contact?.cvUrl || "")} />
-        <ContactAside
-          helperNote={contact?.helperNote}
-          socials={contact?.socials}
-        />
-      </section>
+      <EmojiCursorArea item="✉️">
+        <SectionHeading {...intro} tag="HOLA" />
+        <section className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_20rem]">
+          <ContactForm cvUrl={resolveCloudinaryUrl(contact?.cvUrl || "")} />
+          <ContactAside
+            helperNote={contact?.helperNote}
+            socials={contact?.socials}
+          />
+        </section>
+      </EmojiCursorArea>
     </PageShell>
   );
 }

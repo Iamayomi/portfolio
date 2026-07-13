@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Pagination } from "@/components/common/pagination";
 import { PageShell } from "@/components/common/page-shell";
 import { SectionHeading } from "@/components/common/section-heading";
+import { EmojiCursorArea } from "@/components/common/emoji-cursor-area";
 import { getNotesContent } from "@/lib/api/pages";
 import { NotesList } from "./_components/notes-list";
 import { NotesSearch } from "./_components/notes-search";
@@ -39,33 +40,35 @@ export default async function NotesPage({ searchParams }: NotesPageProps) {
 
   return (
     <PageShell>
-      <SectionHeading
-        eyebrow={content?.hero.eyebrow || "Research notes"}
-        heading={
-          content?.hero.title || "A quiet archive for technical writing."
-        }
-        description={content?.hero.description}
-        tag="NOTE"
-      />
-      <NotesSearch defaultValue={q} />
-      {content?.notes?.length ? (
-        <>
-          <NotesList notes={content.notes} page={pagination?.page || page} />
-          <Pagination
-            pathname="/notes"
-            searchParams={{ ...(q ? { q } : {}) }}
-            currentPage={pagination?.page || page}
-            totalPages={pagination?.totalPages || 1}
-            showingStart={pagination?.showingStart || 0}
-            showingEnd={pagination?.showingEnd || 0}
-            totalItems={pagination?.total || 0}
-            itemName="notes"
-            limit={pagination?.limit || 10}
-          />
-        </>
-      ) : (
-        <NotesEmptyState />
-      )}
+      <EmojiCursorArea item="📝">
+        <SectionHeading
+          eyebrow={content?.hero.eyebrow || "Research notes"}
+          heading={
+            content?.hero.title || "A quiet archive for technical writing."
+          }
+          description={content?.hero.description}
+          tag="NOTE"
+        />
+        <NotesSearch defaultValue={q} />
+        {content?.notes?.length ? (
+          <>
+            <NotesList notes={content.notes} page={pagination?.page || page} />
+            <Pagination
+              pathname="/notes"
+              searchParams={{ ...(q ? { q } : {}) }}
+              currentPage={pagination?.page || page}
+              totalPages={pagination?.totalPages || 1}
+              showingStart={pagination?.showingStart || 0}
+              showingEnd={pagination?.showingEnd || 0}
+              totalItems={pagination?.total || 0}
+              itemName="notes"
+              limit={pagination?.limit || 10}
+            />
+          </>
+        ) : (
+          <NotesEmptyState />
+        )}
+      </EmojiCursorArea>
     </PageShell>
   );
 }
