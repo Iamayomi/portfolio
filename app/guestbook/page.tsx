@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { PageShell } from "@/components/common/page-shell";
 import { SectionHeading } from "@/components/common/section-heading";
+import { EmojiCursorArea } from "@/components/common/emoji-cursor-area";
 import { getGuestbookContent } from "@/lib/api/pages";
 import { pageIntros } from "@/lib/constants/content";
 import { GuestbookList } from "./_components/guestbook-list";
@@ -27,11 +28,13 @@ export default async function GuestbookPage() {
 
   return (
     <PageShell>
-      <SectionHeading {...intro} tag="SIGN" />
-      <section className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_20rem]">
-        <GuestbookList entries={entries} />
-        <GuestbookForm />
-      </section>
+      <EmojiCursorArea item="📖">
+        <SectionHeading {...intro} tag="SIGN" />
+        <section className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_20rem]">
+          <GuestbookList entries={entries} />
+          <GuestbookForm />
+        </section>
+      </EmojiCursorArea>
     </PageShell>
   );
 }

@@ -8,6 +8,7 @@ import { pageIntros } from "@/lib/constants/content";
 import { Boxes } from "lucide-react";
 import type { BuildItem, BuildsPageContent } from "@/lib/types/experience";
 import { normalizeExternalHref } from "@/lib/utils";
+import { EmojiCursorArea } from "@/components/common/emoji-cursor-area";
 import { BuildList } from "./_components/build-list";
 
 export const metadata: Metadata = {
@@ -50,16 +51,18 @@ export default async function BuildsPage() {
 
   return (
     <PageShell>
-      <SectionHeading {...intro} tag="SHOWCASE" />
-      {items.length > 0 ? (
-        <BuildList items={items} />
-      ) : (
-        <EmptyState
-          icon={Boxes}
-          heading="No projects yet."
-          description="Add builds through the CMS dashboard and they will appear here."
-        />
-      )}
+      <EmojiCursorArea item="📦">
+        <SectionHeading {...intro} tag="SHOWCASE" />
+        {items.length > 0 ? (
+          <BuildList items={items} />
+        ) : (
+          <EmptyState
+            icon={Boxes}
+            heading="No projects yet."
+            description="Add builds through the CMS dashboard and they will appear here."
+          />
+        )}
+      </EmojiCursorArea>
     </PageShell>
   );
 }
